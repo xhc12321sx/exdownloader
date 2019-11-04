@@ -105,7 +105,10 @@ class spider(object):
             file_src = self.get_img_src(img)
             prefix = file_src[file_src.rfind("."):]
             print("  Downloading...")
-            urllib.request.urlretrieve(file_src, "./download/"+name+"/"+file_name+prefix)
+            if os.path.exists("./download/"+name+"/"+file_name+prefix):
+                print("    File exist")
+            else:
+                urllib.request.urlretrieve(file_src, "./download/"+name+"/"+file_name+prefix)
 
             pass
         print("Done")

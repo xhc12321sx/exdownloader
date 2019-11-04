@@ -8,5 +8,10 @@ if __name__ == "__main__":
     s = spider()
 
     while True:
-        url = input("url: ")
-        s.ex_url(url)
+        url = input("url(or exit to terminate the process): ")
+        if url != "exit":
+            s.ex_url(url)
+        else:
+            break
+    
+    print("Exit")
